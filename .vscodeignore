@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+src/**
+node_modules/**
+samples/**
+.claude/**
+.gitignore
+.eslintrc.json
+esbuild.js
+tsconfig.json
+package-lock.json
+resources/icon.png
+**/*.map
+**/*.ts

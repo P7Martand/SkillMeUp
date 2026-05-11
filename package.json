@@ -1,0 +1,165 @@
+{
+  "name": "skillmeup",
+  "displayName": "SkillMeUp",
+  "description": "Discover Claude Code skills and plugins matched to your codebase, pick them with checkboxes, and install them straight into your project. Minimalistic, IDE-native, works in VSCode and Cursor.",
+  "version": "0.1.0",
+  "publisher": "skillmeup",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "skillmeup",
+          "title": "SkillMeUp",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "skillmeup": [
+        {
+          "id": "skillmeup.skills",
+          "name": "Claude Code Skills"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "skillmeup.skills",
+        "contents": "Discover Claude Code skills and plugins for this workspace.\n[Refresh catalog](command:skillmeup.refresh)\n[Install skills…](command:skillmeup.openInstallPanel)\n[Add source from GitHub URL…](command:skillmeup.addSource)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "skillmeup.refresh",
+        "title": "SkillMeUp: Refresh Catalog",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "skillmeup.openInstallPanel",
+        "title": "SkillMeUp: Install Skills…",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "skillmeup.addSource",
+        "title": "SkillMeUp: Add Source from GitHub URL…",
+        "icon": "$(add)"
+      },
+      {
+        "command": "skillmeup.installItem",
+        "title": "Install"
+      },
+      {
+        "command": "skillmeup.viewDetails",
+        "title": "View details"
+      },
+      {
+        "command": "skillmeup.openOnGitHub",
+        "title": "Open on GitHub"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "skillmeup.refresh",
+          "when": "view == skillmeup.skills",
+          "group": "navigation@1"
+        },
+        {
+          "command": "skillmeup.openInstallPanel",
+          "when": "view == skillmeup.skills",
+          "group": "navigation@2"
+        },
+        {
+          "command": "skillmeup.addSource",
+          "when": "view == skillmeup.skills",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "skillmeup.installItem",
+          "when": "view == skillmeup.skills && viewItem =~ /^(skill|plugin)$/",
+          "group": "inline@1"
+        },
+        {
+          "command": "skillmeup.viewDetails",
+          "when": "view == skillmeup.skills && viewItem =~ /^(skill|plugin)$/",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "skillmeup.openOnGitHub",
+          "when": "view == skillmeup.skills && viewItem =~ /^(skill|plugin)$/",
+          "group": "1_actions@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SkillMeUp",
+      "properties": {
+        "skillmeup.sources": {
+          "type": "array",
+          "default": [
+            { "url": "https://github.com/anthropics/skills", "kind": "marketplace" },
+            { "url": "https://github.com/anthropics/claude-plugins-official", "kind": "marketplace" }
+          ],
+          "description": "List of skill/plugin sources. Each entry: { url, kind }. kind = marketplace | awesome-list | repo.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": { "type": "string" },
+              "kind": { "type": "string", "enum": ["marketplace", "awesome-list", "repo"] }
+            }
+          }
+        },
+        "skillmeup.installScope": {
+          "type": "string",
+          "enum": ["project", "user"],
+          "default": "project",
+          "description": "Where to install selected skills/plugins. project = <workspace>/.claude/, user = ~/.claude/."
+        },
+        "skillmeup.cacheMinutes": {
+          "type": "number",
+          "default": 60,
+          "description": "How long to cache fetched catalogs (minutes)."
+        },
+        "skillmeup.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "Optional GitHub personal access token to raise API rate limits."
+        },
+        "skillmeup.maxSuggestions": {
+          "type": "number",
+          "default": 10,
+          "description": "Max items to surface under Suggested."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "node esbuild.js --production"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "minimatch": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.95.0",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
+  }
+}

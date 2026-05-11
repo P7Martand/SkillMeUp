@@ -1,0 +1,44 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  fill="none"
+>
+  <!-- glow -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g
+    stroke="#ff7a00"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  >
+    <!-- outer brackets -->
+    <path d="M14 18H9V46H14"/>
+    <path d="M50 18H55V46H50"/>
+
+    <!-- top module -->
+    <rect x="20" y="16" width="24" height="10" rx="4"/>
+
+    <!-- middle module -->
+    <rect x="20" y="27" width="24" height="10" rx="4"/>
+
+    <!-- bottom module -->
+    <rect x="20" y="38" width="24" height="10" rx="4"/>
+
+    <!-- center spine -->
+    <path d="M32 26V27"/>
+    <path d="M32 37V38"/>
+
+    <!-- center node -->
+    <circle cx="32" cy="32" r="3.5" fill="#ffb347"/>
+  </g>
+</svg>
