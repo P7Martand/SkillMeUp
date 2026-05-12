@@ -4,7 +4,7 @@
 
 ## Why
 
-[Claude Code](https://claude.com/claude-code) gets dramatically better with **skills** — small folders of YAML + markdown instructions that teach Claude how to handle specific tasks (writing PDFs, testing webapps, calling the Anthropic API, etc.). The ecosystem is real: Anthropic publishes [official skills](https://github.com/anthropics/skills) and an [official plugin marketplace](https://github.com/anthropics/claude-plugins-official), and there's a growing community catalog.
+[Claude Code](https://claude.com/claude-code) gets dramatically better with **skills** — small folders of YAML + markdown instructions that teach Claude how to handle specific tasks (writing PDFs, testing webapps, calling the Anthropic API, etc.). The ecosystem is real: there are community-maintained skill catalogs and plugin collections available on GitHub, and the list keeps growing.
 
 But adopting them is manual:
 
@@ -82,14 +82,14 @@ npm run compile
 
 **Skills work out of the box.** Claude Code reads `<workspace>/.claude/skills/<name>/SKILL.md` automatically — install via SkillMeUp and the skill is live next time Claude Code starts in that workspace.
 
-**Plugins are not auto-registered.** Claude Code's plugin system uses a registry (`/plugin install …`). Dropping a plugin folder into `.claude/plugins/` puts the files on disk but doesn't register the plugin with Claude Code. For now, plugin installs are best treated as a way to *download and inspect* a plugin's contents — to enable a plugin's skills today, install them as skills instead, or use the `claude` CLI's official `/plugin install` flow.
+**Plugins are not auto-registered.** Claude Code's plugin system uses a registry (`/plugin install …`). Dropping a plugin folder into `.claude/plugins/` puts the files on disk but doesn't register the plugin with Claude Code. For now, plugin installs are best treated as a way to *download and inspect* a plugin's contents — to enable a plugin's skills today, install them as skills instead.
 
 ## Sources
 
 The default catalog fetches from:
 
-- [`anthropics/skills`](https://github.com/anthropics/skills) — Anthropic's official skills repo
-- [`anthropics/claude-plugins-official`](https://github.com/anthropics/claude-plugins-official) — Anthropic's official plugin marketplace
+- [`anthropics/skills`](https://github.com/anthropics/skills) — skills catalog
+- [`anthropics/claude-plugins-official`](https://github.com/anthropics/claude-plugins-official) — plugin catalog
 
 You can add more:
 
