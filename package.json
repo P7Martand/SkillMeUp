@@ -2,7 +2,7 @@
   "name": "skillmeup",
   "displayName": "SkillMeUp",
   "description": "Discover Claude Code skills and plugins matched to your codebase, pick them with checkboxes, and install them straight into your project. Minimalistic, IDE-native, works in VSCode and Cursor.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "skillmeup",
   "engines": {
     "vscode": "^1.95.0"
@@ -109,28 +109,46 @@
         "skillmeup.sources": {
           "type": "array",
           "default": [
-            { "url": "https://github.com/anthropics/skills", "kind": "marketplace" },
-            { "url": "https://github.com/anthropics/claude-plugins-official", "kind": "marketplace" }
+            {
+              "url": "https://github.com/anthropics/skills",
+              "kind": "marketplace"
+            },
+            {
+              "url": "https://github.com/anthropics/claude-plugins-official",
+              "kind": "marketplace"
+            }
           ],
           "description": "List of skill/plugin sources. Each entry: { url, kind }. kind = marketplace | awesome-list | repo.",
           "items": {
             "type": "object",
             "properties": {
-              "url": { "type": "string" },
-              "kind": { "type": "string", "enum": ["marketplace", "awesome-list", "repo"] }
+              "url": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "marketplace",
+                  "awesome-list",
+                  "repo"
+                ]
+              }
             }
           }
         },
         "skillmeup.installScope": {
           "type": "string",
-          "enum": ["project", "user"],
+          "enum": [
+            "project",
+            "user"
+          ],
           "default": "project",
           "description": "Where to install selected skills/plugins. project = <workspace>/.claude/, user = ~/.claude/."
         },
         "skillmeup.cacheMinutes": {
           "type": "number",
-          "default": 60,
-          "description": "How long to cache fetched catalogs (minutes)."
+          "default": 720,
+          "description": "How long to cache fetched catalogs (minutes). Default 720 = 12 hours."
         },
         "skillmeup.githubToken": {
           "type": "string",

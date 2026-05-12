@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { CatalogItem, Recommendation, Catalog } from '../../sources/types';
 import { Installer } from '../../install/installer';
 import { log } from '../../util/logger';
+import { searchGitHubForSkills, RateLimitError } from '../../util/githubSearch';
 
 export interface PanelData {
   recommendations: Recommendation[];
@@ -87,6 +88,21 @@ export class InstallPanel {
       await vscode.commands.executeCommand('skillmeup.addSource');
     } else if (msg?.type === 'refresh') {
       await vscode.commands.executeCommand('skillmeup.refresh');
+    } else if (msg?.type === 'search-github') {
+      const query = (msg.query as string | undefined)?.trim();
+      if (!query) return;
+      try {
+        const results = await searchGitHubForSkills(query);
+        this.panel.webview.postMessage({ type: 'github-results', results });
+      } catch (e) {
+        const errMsg = e instanceof RateLimitError
+          ? e.message
+          : `GitHub search failed: ${(e as Error).message}`;
+        this.panel.webview.postMessage({ type: 'github-error', message: errMsg });
+      }
+    } else if (msg?.type === 'add-github-source') {
+      const url = msg.url as string;
+      if (url) await vscode.commands.executeCommand('skillmeup.addSource', url, 'repo');
     }
   }
 

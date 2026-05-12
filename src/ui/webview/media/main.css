@@ -207,3 +207,32 @@ footer {
   display: flex;
   gap: 8px;
 }
+
+/* GitHub search results */
+.gh-row {
+  background: var(--vscode-editor-inactiveSelectionBackground, transparent);
+}
+
+.gh-stars {
+  color: var(--vscode-charts-yellow, #d4ac0d);
+  border-color: transparent !important;
+}
+
+.gh-loading {
+  padding: 8px 4px;
+  font-style: italic;
+}
+
+.gh-error {
+  padding: 8px 4px;
+  color: var(--vscode-errorForeground);
+  font-size: 12px;
+}
+
+.gh-add {
+  flex-shrink: 0;
+  align-self: center;
+  font-size: 11px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
