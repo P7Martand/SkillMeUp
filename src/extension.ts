@@ -29,6 +29,16 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   const cache = new TTLCache(context.globalState);
   const registry = new SourceRegistry(cache);
   const installer = new Installer();
+
+  // When a stale-cache background refresh finishes, push the fresh data to the UI.
+  registry.onRefreshed = async (freshCatalog) => {
+    const signals = await scanWorkspace();
+    const maxN = vscode.workspace.getConfiguration('skillmeup').get<number>('maxSuggestions', 10);
+    const recs = recommend(freshCatalog, signals, maxN);
+    tree.setState({ catalog: freshCatalog, recommendations: recs, loading: false });
+    InstallPanel.updateIfOpen({ catalog: freshCatalog, recommendations: recs });
+    log('background refresh applied to UI');
+  };
   const tree = new SkillsTreeProvider();
   const treeView = vscode.window.createTreeView('skillmeup.skills', { treeDataProvider: tree, showCollapseAll: true });
   context.subscriptions.push(treeView);
@@ -69,22 +79,25 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('skillmeup.addSource', async () => {
-      const url = await vscode.window.showInputBox({
+    // urlArg / kindArg allow callers (e.g. the webview GitHub search) to skip the prompts.
+    vscode.commands.registerCommand('skillmeup.addSource', async (urlArg?: string, kindArg?: string) => {
+      const url = urlArg ?? await vscode.window.showInputBox({
         title: 'SkillMeUp: Add Source',
         prompt: 'Paste a GitHub repository URL',
         placeHolder: 'https://github.com/owner/repo',
         validateInput: (v) => (parseGitHubUrl(v.trim()) ? null : 'Must be a github.com URL')
       });
       if (!url) return;
-      const kind = await vscode.window.showQuickPick(
-        [
-          { label: 'repo', description: 'Auto-detect: skill, plugin, or marketplace' },
-          { label: 'marketplace', description: 'Repo containing .claude-plugin/marketplace.json' },
-          { label: 'awesome-list', description: 'README-style index of multiple repos' }
-        ],
-        { title: 'How should this source be parsed?' }
-      );
+      const kind = kindArg
+        ? { label: kindArg }
+        : await vscode.window.showQuickPick(
+            [
+              { label: 'repo', description: 'Auto-detect: skill, plugin, or marketplace' },
+              { label: 'marketplace', description: 'Repo containing .claude-plugin/marketplace.json' },
+              { label: 'awesome-list', description: 'README-style index of multiple repos' }
+            ],
+            { title: 'How should this source be parsed?' }
+          );
       if (!kind) return;
       await registry.addSource(url.trim(), kind.label as SourceConfig['kind']);
       await refreshCatalog(true);

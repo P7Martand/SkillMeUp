@@ -22,6 +22,19 @@ export class TTLCache {
     return undefined;
   }
 
+  /** Returns the cached value even if its TTL has expired, with an `expired` flag. */
+  getStale<T>(key: string): { value: T; expired: boolean } | undefined {
+    const now = Date.now();
+    const hit = this.mem.get(key) as Entry<T> | undefined;
+    if (hit) return { value: hit.value, expired: hit.expiresAt <= now };
+    const persisted = this.state.get<Entry<T>>(this.persistKey(key));
+    if (persisted) {
+      this.mem.set(key, persisted);
+      return { value: persisted.value, expired: persisted.expiresAt <= now };
+    }
+    return undefined;
+  }
+
   async set<T>(key: string, value: T, ttlMs: number): Promise<void> {
     const entry: Entry<T> = { value, expiresAt: Date.now() + ttlMs };
     this.mem.set(key, entry);
