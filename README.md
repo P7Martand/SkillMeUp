@@ -17,7 +17,7 @@ But adopting them is manual:
 
 ## What it does
 
-- **Fetches catalogs** from configurable sources: defaults are [`anthropics/skills`](https://github.com/anthropics/skills) and [`anthropics/claude-plugins-official`](https://github.com/anthropics/claude-plugins-official). Pluggable — paste any GitHub URL.
+- **Fetches a hosted catalog index** — a single static `index.json` (built nightly by a crawler, served from GitHub Pages) covering the whole ecosystem. No GitHub API calls, no rate limits, no token on the default path. Add custom GitHub sources on top if you want.
 - **Scans your workspace** for signals: file globs, `package.json` / `pyproject.toml` / `requirements.txt` dependencies, languages, the presence of telltale files (`*.ipynb`, `*.pdf`, `playwright.config.*`, `Dockerfile`, `.github/workflows/`).
 - **Recommends** the most relevant skills/plugins, scored using the skill's own `paths` frontmatter globs (×3 weight), dependency matches (×5), file-type flags (×2), language and README keyword overlap.
 - **Multi-select install** via a clean native panel. Pre-checks the suggested items, lets you tick anything extra, writes to `<workspace>/.claude/skills/` or `<workspace>/.claude/plugins/`.
@@ -72,10 +72,11 @@ npm run compile
 
 | Key | Default | Description |
 |---|---|---|
-| `skillmeup.sources` | official Anthropic skills + plugins repos | List of `{ url, kind }` source entries. `kind` is `marketplace`, `awesome-list`, or `repo`. |
+| `skillmeup.indexUrl` | hosted Pages index | URL of the published catalog `index.json`. This is the default catalog — fetched as a single static file, no GitHub API calls, no rate limits, no token. |
+| `skillmeup.sources` | `[]` (empty) | Optional user-added custom sources fetched live from GitHub, merged on top of the hosted index. Each entry `{ url, kind }`; `kind` is `marketplace`, `awesome-list`, or `repo`. Leave empty unless adding a repo not yet in the index. |
 | `skillmeup.installScope` | `project` | Where to install. `project` = `<workspace>/.claude/`; `user` = `~/.claude/`. |
-| `skillmeup.cacheMinutes` | `60` | How long to cache fetched catalogs. |
-| `skillmeup.githubToken` | `""` | Optional GitHub PAT to raise the API rate limit from 60/hour to 5,000/hour. Read-only public-repo access is sufficient — no scopes needed. |
+| `skillmeup.cacheMinutes` | `720` | How long to cache the fetched index before revalidating (stale-while-revalidate; 720 = 12h). |
+| `skillmeup.githubToken` | `""` | Optional GitHub PAT. Only relevant for the opt-in custom-source path (`skillmeup.sources`) — the default index path never calls the GitHub API. |
 | `skillmeup.maxSuggestions` | `10` | Cap on the Suggested list. |
 
 ## Skills vs Plugins — important nuance
@@ -98,6 +99,37 @@ You can add more:
 - `repo` — auto-detect any GitHub repo (single skill / plugin / marketplace)
 
 Edit `skillmeup.sources` in settings, or use **SkillMeUp: Add Source from GitHub URL…**.
+
+## Hosted catalog index
+
+The default catalog is **not** fetched live from GitHub anymore. A scheduled crawler builds a single static `index.json` covering the whole ecosystem and publishes it to GitHub Pages; the extension fetches that one file (ETag-conditional, cached, with offline fallback). The result:
+
+- **No rate limits, no token** on the default path — the extension makes zero GitHub API calls to browse and search.
+- **Instant, comprehensive search** across every indexed skill/plugin, ranked, with `verified` (curated) and `community` (auto-discovered) trust tiers you can filter by.
+- **Reproducible installs** — each entry pins the source repo's commit SHA.
+
+`skillmeup.indexUrl` points at the published index. Custom `skillmeup.sources` (if any) are fetched live and merged on top, with index entries winning on duplicate IDs.
+
+### Maintaining the index (crawler)
+
+The crawler lives in [`crawler/`](crawler/) and runs nightly via [`.github/workflows/crawl.yml`](.github/workflows/crawl.yml):
+
+1. **Discovers** repos: curated [`crawler/seeds.json`](crawler/seeds.json) → tagged `verified`; GitHub code search (`filename:SKILL.md`) + topic search (`claude-skill`, `claude-plugin`, …) → tagged `community`. [`crawler/denylist.json`](crawler/denylist.json) excludes repos.
+2. **Parses** each repo (marketplace.json + `skills/`/`plugins/` scan) using the shared parsers in `src/shared/parse/`.
+3. **Enriches** with stars, topics, derived category, and the default-branch commit SHA.
+4. **Publishes** `dist/index.json` + `dist/meta.json` to the `gh-pages` branch.
+
+Run it locally with a PAT for higher limits:
+
+```bash
+CRAWLER_GITHUB_TOKEN=<your PAT> npm run crawl   # writes dist/index.json
+```
+
+**One-time deployment setup:**
+
+1. Let the `Crawl skills index` workflow run once (push to default branch, then trigger it via the Actions tab) — it creates the `gh-pages` branch.
+2. In **Settings → Pages**, set the source to the `gh-pages` branch (root). GitHub serves the index at `https://<owner>.github.io/<repo>/index.json`.
+3. Set the `skillmeup.indexUrl` **default** in `package.json` (and your settings) to that exact URL. Until this is done, the default catalog will be empty — click **Refresh** after configuring.
 
 ## How the recommendation engine works
 

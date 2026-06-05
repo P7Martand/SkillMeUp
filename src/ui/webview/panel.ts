@@ -92,7 +92,10 @@ export class InstallPanel {
     } else if (msg?.type === 'search') {
       const query = (msg.query as string | undefined) ?? '';
       const filters = (msg.filters as SearchFilters | undefined) ?? {};
-      const results = search(this.lastItems, query, filters);
+      // Browse view (no text query) must show the whole catalog, not a capped
+      // slice; for ranked text queries 100 is plenty. Search is local + instant.
+      const limit = query.trim() ? 100 : this.lastItems.length;
+      const results = search(this.lastItems, query, filters, limit);
       this.panel.webview.postMessage({
         type: 'results',
         ids: results.map((r) => r.item.id)
