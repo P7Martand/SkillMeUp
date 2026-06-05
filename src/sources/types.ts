@@ -5,6 +5,8 @@ export interface SourceConfig {
   kind: SourceKind;
 }
 
+export type Tier = 'verified' | 'community';
+
 export interface BaseMeta {
   id: string;                 // "<owner/repo>#<name>"
   name: string;
@@ -12,7 +14,12 @@ export interface BaseMeta {
   sourceRepo: string;         // "owner/repo"
   sourceUrl: string;          // canonical github URL
   pathInRepo: string;         // location of the folder inside the repo
-  ref: string;                // branch / tag
+  ref: string;                // branch / tag / pinned commit SHA
+  tier?: Tier;                // verified (curated) | community (auto-discovered)
+  stars?: number;             // source repo star count
+  category?: string;          // derived category (see crawler/categorize.ts)
+  tags?: string[];            // topics / keywords for search + filtering
+  updatedAt?: string;         // ISO timestamp of source repo's last push
 }
 
 export interface SkillMeta extends BaseMeta {

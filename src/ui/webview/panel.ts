@@ -2,7 +2,8 @@ import * as vscode from 'vscode';
 import { CatalogItem, Recommendation, Catalog } from '../../sources/types';
 import { Installer } from '../../install/installer';
 import { log } from '../../util/logger';
-import { searchGitHubForSkills, RateLimitError } from '../../util/githubSearch';
+import { search, SearchFilters } from '../../search/searchEngine';
+import { CATEGORIES } from '../../shared/indexTypes';
 
 export interface PanelData {
   recommendations: Recommendation[];
@@ -88,21 +89,17 @@ export class InstallPanel {
       await vscode.commands.executeCommand('skillmeup.addSource');
     } else if (msg?.type === 'refresh') {
       await vscode.commands.executeCommand('skillmeup.refresh');
-    } else if (msg?.type === 'search-github') {
-      const query = (msg.query as string | undefined)?.trim();
-      if (!query) return;
-      try {
-        const results = await searchGitHubForSkills(query);
-        this.panel.webview.postMessage({ type: 'github-results', results });
-      } catch (e) {
-        const errMsg = e instanceof RateLimitError
-          ? e.message
-          : `GitHub search failed: ${(e as Error).message}`;
-        this.panel.webview.postMessage({ type: 'github-error', message: errMsg });
-      }
-    } else if (msg?.type === 'add-github-source') {
-      const url = msg.url as string;
-      if (url) await vscode.commands.executeCommand('skillmeup.addSource', url, 'repo');
+    } else if (msg?.type === 'search') {
+      const query = (msg.query as string | undefined) ?? '';
+      const filters = (msg.filters as SearchFilters | undefined) ?? {};
+      // Browse view (no text query) must show the whole catalog, not a capped
+      // slice; for ranked text queries 100 is plenty. Search is local + instant.
+      const limit = query.trim() ? 100 : this.lastItems.length;
+      const results = search(this.lastItems, query, filters, limit);
+      this.panel.webview.postMessage({
+        type: 'results',
+        ids: results.map((r) => r.item.id)
+      });
     }
   }
 
@@ -131,8 +128,9 @@ export class InstallPanel {
     </div>
   </header>
   <div class="searchbar">
-    <input id="search" type="text" placeholder="Filter by name or description…" />
+    <input id="search" type="text" placeholder="Search skills & plugins…" />
   </div>
+  <div id="filters" class="filters"></div>
   <main id="content">
     <p class="muted">Loading…</p>
   </main>
@@ -156,16 +154,33 @@ export class InstallPanel {
 }
 
 function serialize(data: PanelData): {
-  suggested: Array<{ item: CatalogItem; reasons: string[] }>;
-  others: CatalogItem[];
+  items: CatalogItem[];
+  suggestedIds: string[];
+  reasons: Record<string, string[]>;
+  facets: { categories: string[]; counts: { skills: number; plugins: number; verified: number; community: number } };
 } {
-  const seen = new Set<string>();
-  const suggested = data.recommendations.map((r) => {
-    seen.add(r.item.id);
-    return { item: r.item, reasons: r.reasons };
-  });
-  const others = [...data.catalog.skills, ...data.catalog.plugins].filter((i) => !seen.has(i.id));
-  return { suggested, others };
+  const items = [...data.catalog.skills, ...data.catalog.plugins];
+  const reasons: Record<string, string[]> = {};
+  const suggestedIds: string[] = [];
+  for (const r of data.recommendations) {
+    suggestedIds.push(r.item.id);
+    reasons[r.item.id] = r.reasons;
+  }
+  const present = new Set(items.map((i) => i.category).filter(Boolean) as string[]);
+  return {
+    items,
+    suggestedIds,
+    reasons,
+    facets: {
+      categories: CATEGORIES.filter((c) => present.has(c)),
+      counts: {
+        skills: data.catalog.skills.length,
+        plugins: data.catalog.plugins.length,
+        verified: items.filter((i) => i.tier === 'verified').length,
+        community: items.filter((i) => i.tier === 'community').length
+      }
+    }
+  };
 }
 
 function nonceStr(): string {

@@ -2,8 +2,12 @@
   "name": "skillmeup",
   "displayName": "SkillMeUp",
   "description": "Discover Claude Code skills and plugins matched to your codebase, pick them with checkboxes, and install them straight into your project. Minimalistic, IDE-native, works in VSCode and Cursor.",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "publisher": "skillmeup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/P7Martand/SkillMeUp.git"
+  },
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -108,17 +112,8 @@
       "properties": {
         "skillmeup.sources": {
           "type": "array",
-          "default": [
-            {
-              "url": "https://github.com/anthropics/skills",
-              "kind": "marketplace"
-            },
-            {
-              "url": "https://github.com/anthropics/claude-plugins-official",
-              "kind": "marketplace"
-            }
-          ],
-          "description": "List of skill/plugin sources. Each entry: { url, kind }. kind = marketplace | awesome-list | repo.",
+          "default": [],
+          "description": "Optional user-added custom skill/plugin sources fetched live from GitHub. The default catalog comes from the hosted index (skillmeup.indexUrl); leave this empty unless adding a repo not yet indexed.",
           "items": {
             "type": "object",
             "properties": {
@@ -135,6 +130,11 @@
               }
             }
           }
+        },
+        "skillmeup.indexUrl": {
+          "type": "string",
+          "default": "https://raw.githubusercontent.com/P7Martand/SkillMeUp/main/src/index/defaultIndex.json",
+          "description": "URL of the published SkillMeUp catalog index (index.json). Defaults to the committed seed index served via GitHub raw; the extension also ships a bundled copy as an offline fallback. Point this at your GitHub Pages index for the full nightly-updated catalog."
         },
         "skillmeup.installScope": {
           "type": "string",
@@ -167,7 +167,12 @@
     "compile": "node esbuild.js",
     "watch": "node esbuild.js --watch",
     "typecheck": "tsc --noEmit",
-    "vscode:prepublish": "node esbuild.js --production"
+    "vscode:prepublish": "node esbuild.js --production",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck:crawler": "tsc -p tsconfig.crawler.json --noEmit",
+    "crawl": "tsx crawler/index.ts",
+    "crawl:seeds": "tsx crawler/seedIndex.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
@@ -178,6 +183,8 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.95.0",
     "esbuild": "^0.20.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^2.1.8",
+    "tsx": "^4.19.2"
   }
 }

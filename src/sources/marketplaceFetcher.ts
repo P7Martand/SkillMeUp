@@ -7,7 +7,7 @@ import {
   tryFetchRaw,
   RepoRef
 } from '../util/githubFetcher';
-import { parseFrontmatter, normalizePaths, normalizeWhenToUse, normalizeAllowedTools } from '../util/yaml';
+import { parseFrontmatter, normalizePaths, normalizeWhenToUse, normalizeAllowedTools } from '../shared/parse/frontmatter';
 import { Catalog, SkillMeta, PluginMeta, emptyCatalog } from './types';
 import { log, logError } from '../util/logger';
 

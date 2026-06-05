@@ -1,0 +1,7 @@
+{
+  "repos": [
+    "anthropics/skills",
+    "anthropics/claude-plugins-official",
+    "anthropics/claude-cookbooks"
+  ]
+}

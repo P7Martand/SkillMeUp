@@ -1,6 +1,10 @@
 .vscode/**
 .vscode-test/**
 src/**
+crawler/**
+docs/**
+dist/**
+.github/**
 node_modules/**
 samples/**
 .claude/**
@@ -8,6 +12,8 @@ samples/**
 .eslintrc.json
 esbuild.js
 tsconfig.json
+tsconfig.crawler.json
+vitest.config.ts
 package-lock.json
 resources/icon.png
 **/*.map

@@ -1,0 +1,1374 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-05T19:34:35.321Z",
+  "stats": {
+    "skills": 17,
+    "plugins": 51,
+    "repos": 2
+  },
+  "entries": [
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#algorithmic-art",
+      "name": "algorithmic-art",
+      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/algorithmic-art",
+      "pathInRepo": "skills/algorithmic-art",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#brand-guidelines",
+      "name": "brand-guidelines",
+      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/brand-guidelines",
+      "pathInRepo": "skills/brand-guidelines",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "frontend",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#canvas-design",
+      "name": "canvas-design",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/canvas-design",
+      "pathInRepo": "skills/canvas-design",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "frontend",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#claude-api",
+      "name": "claude-api",
+      "description": "Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 → 4.6, 4.6 → 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project. SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/claude-api",
+      "pathInRepo": "skills/claude-api",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#doc-coauthoring",
+      "name": "doc-coauthoring",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/doc-coauthoring",
+      "pathInRepo": "skills/doc-coauthoring",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "security",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#docx",
+      "name": "docx",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/docx",
+      "pathInRepo": "skills/docx",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "docs",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#frontend-design",
+      "name": "frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/frontend-design",
+      "pathInRepo": "skills/frontend-design",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "frontend",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#internal-comms",
+      "name": "internal-comms",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/internal-comms",
+      "pathInRepo": "skills/internal-comms",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#mcp-builder",
+      "name": "mcp-builder",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/mcp-builder",
+      "pathInRepo": "skills/mcp-builder",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "frontend",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#pdf",
+      "name": "pdf",
+      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/pdf",
+      "pathInRepo": "skills/pdf",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "docs",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#pptx",
+      "name": "pptx",
+      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/pptx",
+      "pathInRepo": "skills/pptx",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "docs",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#skill-creator",
+      "name": "skill-creator",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/skill-creator",
+      "pathInRepo": "skills/skill-creator",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#slack-gif-creator",
+      "name": "slack-gif-creator",
+      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/slack-gif-creator",
+      "pathInRepo": "skills/slack-gif-creator",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#theme-factory",
+      "name": "theme-factory",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/theme-factory",
+      "pathInRepo": "skills/theme-factory",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "other",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#web-artifacts-builder",
+      "name": "web-artifacts-builder",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/web-artifacts-builder",
+      "pathInRepo": "skills/web-artifacts-builder",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "frontend",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#webapp-testing",
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/webapp-testing",
+      "pathInRepo": "skills/webapp-testing",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "testing",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills#xlsx",
+      "name": "xlsx",
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \"the xlsx in my downloads\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "paths": [],
+      "allowedTools": [],
+      "sourceRepo": "anthropics/skills",
+      "sourceUrl": "https://github.com/anthropics/skills/tree/da20c92503b2e8ff1cf28ca81a0df4673debdbf7/skills/xlsx",
+      "pathInRepo": "skills/xlsx",
+      "ref": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+      "tier": "verified",
+      "stars": 146929,
+      "category": "data",
+      "tags": [
+        "agent-skills"
+      ],
+      "updatedAt": "2026-05-29T02:02:28Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#agent-sdk-dev",
+      "name": "agent-sdk-dev",
+      "description": "Claude Agent SDK Development Plugin",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/agent-sdk-dev",
+      "pathInRepo": "plugins/agent-sdk-dev",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#asana",
+      "name": "asana",
+      "description": "Asana project management integration. Create and manage tasks, search projects, update assignments, track progress, and integrate your development workflow with Asana's work management platform.",
+      "author": "Asana",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/asana",
+      "pathInRepo": "external_plugins/asana",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#clangd-lsp",
+      "name": "clangd-lsp",
+      "description": "C/C++ language server (clangd) for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/clangd-lsp",
+      "pathInRepo": "plugins/clangd-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#claude-code-setup",
+      "name": "claude-code-setup",
+      "description": "Analyze codebases and recommend tailored Claude Code automations such as hooks, skills, MCP servers, and subagents.",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/claude-code-setup",
+      "pathInRepo": "plugins/claude-code-setup",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#claude-md-management",
+      "name": "claude-md-management",
+      "description": "Tools to maintain and improve CLAUDE.md files - audit quality, capture session learnings, and keep project memory current.",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/claude-md-management",
+      "pathInRepo": "plugins/claude-md-management",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#code-modernization",
+      "name": "code-modernization",
+      "description": "Modernize legacy codebases (COBOL, legacy Java/C++, monolith web apps) with a structured assess → map → extract-rules → brief → reimagine/transform → harden workflow and specialist review agents",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/code-modernization",
+      "pathInRepo": "plugins/code-modernization",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#code-review",
+      "name": "code-review",
+      "description": "Automated code review for pull requests using multiple specialized agents with confidence-based scoring",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/code-review",
+      "pathInRepo": "plugins/code-review",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#code-simplifier",
+      "name": "code-simplifier",
+      "description": "Agent that simplifies and refines code for clarity, consistency, and maintainability while preserving functionality",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/code-simplifier",
+      "pathInRepo": "plugins/code-simplifier",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#commit-commands",
+      "name": "commit-commands",
+      "description": "Streamline your git workflow with simple commands for committing, pushing, and creating pull requests",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/commit-commands",
+      "pathInRepo": "plugins/commit-commands",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#context7",
+      "name": "context7",
+      "description": "Upstash Context7 MCP server for up-to-date documentation lookup. Pull version-specific documentation and code examples directly from source repositories into your LLM context.",
+      "author": "Upstash",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/context7",
+      "pathInRepo": "external_plugins/context7",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#csharp-lsp",
+      "name": "csharp-lsp",
+      "description": "C# language server for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/csharp-lsp",
+      "pathInRepo": "plugins/csharp-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#cwc-makers",
+      "name": "cwc-makers",
+      "description": "Seamless onboarding for the Code-with-Claude Makers Cardputer: one /maker-setup command clones the build-with-claude repo, flashes UIFlow firmware, and installs the Claude Buddy app bundle onto a freshly-plugged-in M5Stack Cardputer-Adv.",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/cwc-makers",
+      "pathInRepo": "plugins/cwc-makers",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#discord",
+      "name": "discord",
+      "description": "Discord channel for Claude Code — messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /discord:access.",
+      "version": "0.0.4",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/discord",
+      "pathInRepo": "external_plugins/discord",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#example-plugin",
+      "name": "example-plugin",
+      "description": "A comprehensive example plugin demonstrating all Claude Code extension options including commands, agents, skills, hooks, and MCP servers",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/example-plugin",
+      "pathInRepo": "plugins/example-plugin",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#explanatory-output-style",
+      "name": "explanatory-output-style",
+      "description": "Adds educational insights about implementation choices and codebase patterns (mimics the deprecated Explanatory output style)",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/explanatory-output-style",
+      "pathInRepo": "plugins/explanatory-output-style",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#fakechat",
+      "name": "fakechat",
+      "description": "Localhost iMessage-style web chat for Claude Code — test surface with file upload and edits. No tokens, no access control.",
+      "version": "0.0.1",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/fakechat",
+      "pathInRepo": "external_plugins/fakechat",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#feature-dev",
+      "name": "feature-dev",
+      "description": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/feature-dev",
+      "pathInRepo": "plugins/feature-dev",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#firebase",
+      "name": "firebase",
+      "description": "Google Firebase MCP integration. Manage Firestore databases, authentication, cloud functions, hosting, and storage. Build and manage your Firebase backend directly from your development workflow.",
+      "author": "Google",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/firebase",
+      "pathInRepo": "external_plugins/firebase",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#frontend-design",
+      "name": "frontend-design",
+      "description": "Frontend design skill for UI/UX implementation",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/frontend-design",
+      "pathInRepo": "plugins/frontend-design",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "frontend",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#github",
+      "name": "github",
+      "description": "Official GitHub MCP server for repository management. Create issues, manage pull requests, review code, search repositories, and interact with GitHub's full API directly from Claude Code.",
+      "author": "GitHub",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/github",
+      "pathInRepo": "external_plugins/github",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#gitlab",
+      "name": "gitlab",
+      "description": "GitLab DevOps platform integration. Manage repositories, merge requests, CI/CD pipelines, issues, and wikis. Full access to GitLab's comprehensive DevOps lifecycle tools.",
+      "author": "GitLab",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/gitlab",
+      "pathInRepo": "external_plugins/gitlab",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#gopls-lsp",
+      "name": "gopls-lsp",
+      "description": "Go language server for code intelligence and refactoring",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/gopls-lsp",
+      "pathInRepo": "plugins/gopls-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#greptile",
+      "name": "greptile",
+      "description": "AI code review agent for GitHub and GitLab. View and resolve Greptile's PR review comments directly from Claude Code.",
+      "author": "Greptile",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/greptile",
+      "pathInRepo": "external_plugins/greptile",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#hookify",
+      "name": "hookify",
+      "description": "Easily create hooks to prevent unwanted behaviors by analyzing conversation patterns",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/hookify",
+      "pathInRepo": "plugins/hookify",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#imessage",
+      "name": "imessage",
+      "description": "iMessage channel for Claude Code — reads chat.db directly, sends via AppleScript. Built-in access control; manage pairing, allowlists, and policy via /imessage:access.",
+      "version": "0.1.0",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/imessage",
+      "pathInRepo": "external_plugins/imessage",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#jdtls-lsp",
+      "name": "jdtls-lsp",
+      "description": "Java language server (Eclipse JDT.LS) for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/jdtls-lsp",
+      "pathInRepo": "plugins/jdtls-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#kotlin-lsp",
+      "name": "kotlin-lsp",
+      "description": "Kotlin language server for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/kotlin-lsp",
+      "pathInRepo": "plugins/kotlin-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#laravel-boost",
+      "name": "laravel-boost",
+      "description": "Laravel development toolkit MCP server. Provides intelligent assistance for Laravel applications including Artisan commands, Eloquent queries, routing, migrations, and framework-specific code generation.",
+      "author": "Laravel",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/laravel-boost",
+      "pathInRepo": "external_plugins/laravel-boost",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#learning-output-style",
+      "name": "learning-output-style",
+      "description": "Interactive learning mode that requests meaningful code contributions at decision points (mimics the unshipped Learning output style)",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/learning-output-style",
+      "pathInRepo": "plugins/learning-output-style",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#linear",
+      "name": "linear",
+      "description": "Linear issue tracking integration. Create issues, manage projects, update statuses, search across workspaces, and streamline your software development workflow with Linear's modern issue tracker.",
+      "author": "Linear",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/linear",
+      "pathInRepo": "external_plugins/linear",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#lua-lsp",
+      "name": "lua-lsp",
+      "description": "Lua language server for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/lua-lsp",
+      "pathInRepo": "plugins/lua-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#math-olympiad",
+      "name": "math-olympiad",
+      "description": "Solve competition math (IMO, Putnam, USAMO) with adversarial verification that catches what self-verification misses. Fresh-context verifiers attack proofs with specific failure patterns. Calibrated abstention over bluffing.",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/math-olympiad",
+      "pathInRepo": "plugins/math-olympiad",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#mcp-server-dev",
+      "name": "mcp-server-dev",
+      "description": "Skills for designing and building MCP servers that work seamlessly with Claude — guides you through deployment models (remote HTTP, MCPB, local), tool design patterns, auth, and interactive MCP apps.",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/mcp-server-dev",
+      "pathInRepo": "plugins/mcp-server-dev",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#mcp-tunnels",
+      "name": "mcp-tunnels",
+      "description": "Connect Claude to a private MCP server through an Anthropic MCP tunnel. Drives the Docker Compose quickstart end to end: certificates, proxy config, cloudflared, and a verifiable sample server.",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/mcp-tunnels",
+      "pathInRepo": "plugins/mcp-tunnels",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#php-lsp",
+      "name": "php-lsp",
+      "description": "PHP language server (Intelephense) for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/php-lsp",
+      "pathInRepo": "plugins/php-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#playground",
+      "name": "playground",
+      "description": "Creates interactive HTML playgrounds — self-contained single-file explorers with visual controls, live preview, and prompt output with copy button",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/playground",
+      "pathInRepo": "plugins/playground",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#playwright",
+      "name": "playwright",
+      "description": "Browser automation and end-to-end testing MCP server by Microsoft. Enables Claude to interact with web pages, take screenshots, fill forms, click elements, and perform automated browser testing workflows.",
+      "author": "Microsoft",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/playwright",
+      "pathInRepo": "external_plugins/playwright",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "testing",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#plugin-dev",
+      "name": "plugin-dev",
+      "description": "Plugin development toolkit with skills for creating agents, commands, hooks, MCP integrations, and comprehensive plugin structure guidance",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/plugin-dev",
+      "pathInRepo": "plugins/plugin-dev",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#pr-review-toolkit",
+      "name": "pr-review-toolkit",
+      "description": "Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/pr-review-toolkit",
+      "pathInRepo": "plugins/pr-review-toolkit",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#pyright-lsp",
+      "name": "pyright-lsp",
+      "description": "Python language server (Pyright) for type checking and code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/pyright-lsp",
+      "pathInRepo": "plugins/pyright-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#ralph-loop",
+      "name": "ralph-loop",
+      "description": "Continuous self-referential AI loops for interactive iterative development, implementing the Ralph Wiggum technique. Run Claude in a while-true loop with the same prompt until task completion.",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/ralph-loop",
+      "pathInRepo": "plugins/ralph-loop",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#ruby-lsp",
+      "name": "ruby-lsp",
+      "description": "Ruby language server for code intelligence and analysis",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/ruby-lsp",
+      "pathInRepo": "plugins/ruby-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#rust-analyzer-lsp",
+      "name": "rust-analyzer-lsp",
+      "description": "Rust language server for code intelligence and analysis",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/rust-analyzer-lsp",
+      "pathInRepo": "plugins/rust-analyzer-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#security-guidance",
+      "name": "security-guidance",
+      "description": "Security review for Claude-generated code. Pattern-based warnings on edits, LLM-powered diff review on Stop, and an agentic commit reviewer that catches injection, XSS, SSRF, hardcoded secrets, and 25+ other vulnerability classes.",
+      "version": "2.0.3",
+      "author": "David Dworken",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/security-guidance",
+      "pathInRepo": "plugins/security-guidance",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "frontend",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#serena",
+      "name": "serena",
+      "description": "Semantic code analysis MCP server providing intelligent code understanding, refactoring suggestions, and codebase navigation through language server protocol integration.",
+      "author": "Oraios",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/serena",
+      "pathInRepo": "external_plugins/serena",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#session-report",
+      "name": "session-report",
+      "description": "Generate an explorable HTML report of Claude Code session usage — tokens, cache efficiency, subagents, skills, and the most expensive prompts — from local ~/.claude/projects transcripts.",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/session-report",
+      "pathInRepo": "plugins/session-report",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#skill-creator",
+      "name": "skill-creator",
+      "description": "Create new skills, improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, or benchmark skill performance with variance analysis.",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/skill-creator",
+      "pathInRepo": "plugins/skill-creator",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#swift-lsp",
+      "name": "swift-lsp",
+      "description": "Swift language server (SourceKit-LSP) for code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/swift-lsp",
+      "pathInRepo": "plugins/swift-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#telegram",
+      "name": "telegram",
+      "description": "Telegram channel for Claude Code — messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /telegram:access.",
+      "version": "0.0.6",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/telegram",
+      "pathInRepo": "external_plugins/telegram",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#terraform",
+      "name": "terraform",
+      "description": "The Terraform MCP Server provides seamless integration with Terraform ecosystem, enabling advanced automation and interaction capabilities for Infrastructure as Code (IaC) development.",
+      "author": "HashiCorp",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/external_plugins/terraform",
+      "pathInRepo": "external_plugins/terraform",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "devops",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    },
+    {
+      "kind": "plugin",
+      "id": "anthropics/claude-plugins-official#typescript-lsp",
+      "name": "typescript-lsp",
+      "description": "TypeScript/JavaScript language server for enhanced code intelligence",
+      "version": "1.0.0",
+      "author": "Anthropic",
+      "sourceRepo": "anthropics/claude-plugins-official",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/tree/4230aea142a3668e5e3203730928e3f27b9a409a/plugins/typescript-lsp",
+      "pathInRepo": "plugins/typescript-lsp",
+      "ref": "4230aea142a3668e5e3203730928e3f27b9a409a",
+      "tier": "verified",
+      "stars": 29429,
+      "category": "other",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "skills"
+      ],
+      "updatedAt": "2026-06-05T19:15:16Z"
+    }
+  ]
+}
