@@ -2,8 +2,12 @@
   "name": "skillmeup",
   "displayName": "SkillMeUp",
   "description": "Discover Claude Code skills and plugins matched to your codebase, pick them with checkboxes, and install them straight into your project. Minimalistic, IDE-native, works in VSCode and Cursor.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "publisher": "skillmeup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/P7Martand/SkillMeUp.git"
+  },
   "engines": {
     "vscode": "^1.95.0"
   },
