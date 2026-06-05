@@ -167,7 +167,10 @@
     "compile": "node esbuild.js",
     "watch": "node esbuild.js --watch",
     "typecheck": "tsc --noEmit",
-    "vscode:prepublish": "node esbuild.js --production"
+    "vscode:prepublish": "node esbuild.js --production",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck:crawler": "tsc -p tsconfig.crawler.json --noEmit"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
@@ -178,6 +181,8 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.95.0",
     "esbuild": "^0.20.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^2.1.8",
+    "tsx": "^4.19.2"
   }
 }
