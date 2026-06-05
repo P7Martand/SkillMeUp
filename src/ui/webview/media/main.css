@@ -236,3 +236,40 @@ footer {
   padding: 2px 8px;
   white-space: nowrap;
 }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--vscode-panel-border);
+}
+.chip {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--vscode-panel-border);
+  background: transparent;
+  color: var(--vscode-foreground);
+  cursor: pointer;
+}
+.chip.active {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border-color: var(--vscode-button-background);
+}
+.row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--vscode-panel-border); }
+.row .body { flex: 1; min-width: 0; }
+.row .title { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.row .name { font-weight: 600; }
+.row .desc { font-size: 12px; opacity: 0.85; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 4px; font-size: 11px; }
+.row-install { align-self: center; white-space: nowrap; }
+.badge { font-size: 10px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--vscode-panel-border); }
+.badge.kind { text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.8; }
+.badge.verified { color: var(--vscode-testing-iconPassed, #3fb950); border-color: currentColor; }
+.badge.community { opacity: 0.7; }
+.badge.stars { opacity: 0.8; }
+.badge.cat { opacity: 0.75; }
+.badge.tag { opacity: 0.6; }
+.reasons { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.reason { font-size: 10px; padding: 1px 6px; border-radius: 4px; background: var(--vscode-badge-background); color: var(--vscode-badge-foreground); }
