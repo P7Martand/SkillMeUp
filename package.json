@@ -2,7 +2,7 @@
   "name": "skillmeup",
   "displayName": "SkillMeUp",
   "description": "Discover Claude Code skills and plugins matched to your codebase, pick them with checkboxes, and install them straight into your project. Minimalistic, IDE-native, works in VSCode and Cursor.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "skillmeup",
   "repository": {
     "type": "git",
@@ -133,8 +133,8 @@
         },
         "skillmeup.indexUrl": {
           "type": "string",
-          "default": "https://anthropics.github.io/SkillMeUp/index.json",
-          "description": "URL of the published SkillMeUp catalog index (index.json). Defaults to the hosted nightly index."
+          "default": "https://raw.githubusercontent.com/P7Martand/SkillMeUp/main/src/index/defaultIndex.json",
+          "description": "URL of the published SkillMeUp catalog index (index.json). Defaults to the committed seed index served via GitHub raw; the extension also ships a bundled copy as an offline fallback. Point this at your GitHub Pages index for the full nightly-updated catalog."
         },
         "skillmeup.installScope": {
           "type": "string",
@@ -171,7 +171,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck:crawler": "tsc -p tsconfig.crawler.json --noEmit",
-    "crawl": "tsx crawler/index.ts"
+    "crawl": "tsx crawler/index.ts",
+    "crawl:seeds": "tsx crawler/seedIndex.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

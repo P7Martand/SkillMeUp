@@ -17,6 +17,8 @@ export interface IndexClientOpts {
   indexUrl: string;
   ttlMs: number;
   fetchFn?: typeof fetch;
+  /** Bundled seed index used when nothing is cached and the remote fetch fails. */
+  fallbackIndex?: SkillMeUpIndex;
 }
 
 const CACHE_KEY = 'skillmeup.index.cache';
@@ -46,6 +48,9 @@ export class IndexClient {
       return toCatalog(entry.index);
     } catch (e) {
       if (cached) return toCatalog(cached.index);
+      // No cache and the remote is unreachable (e.g. index not yet published):
+      // serve the bundled seed index so the catalog is never empty.
+      if (this.opts.fallbackIndex) return toCatalog(this.opts.fallbackIndex);
       throw e;
     }
   }

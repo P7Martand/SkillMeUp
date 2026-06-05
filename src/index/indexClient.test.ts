@@ -73,4 +73,27 @@ describe('IndexClient', () => {
     const client = new IndexClient(memStore(), { indexUrl: 'https://x/index.json', ttlMs: 0, fetchFn });
     await expect(client.getCatalog()).rejects.toThrow();
   });
+
+  it('serves the bundled fallback index when cold and the remote fails', async () => {
+    const fetchFn = vi.fn().mockRejectedValue(new Error('offline'));
+    const client = new IndexClient(memStore(), {
+      indexUrl: 'https://x/index.json', ttlMs: 0, fetchFn, fallbackIndex: sampleIndex
+    });
+    const catalog = await client.getCatalog();
+    expect(catalog.skills).toHaveLength(1);
+    expect(catalog.skills[0].id).toBe('o/r#a');
+  });
+
+  it('prefers the remote index over the fallback when the fetch succeeds', async () => {
+    const remote = { ...sampleIndex, entries: [
+      { kind: 'plugin', id: 'o/r#p', name: 'p', sourceRepo: 'o/r', sourceUrl: 'u', pathInRepo: 'p', ref: 'sha' }
+    ] } as SkillMeUpIndex;
+    const fetchFn = vi.fn().mockResolvedValue(jsonResponse(remote, { etag: 'v1' }));
+    const client = new IndexClient(memStore(), {
+      indexUrl: 'https://x/index.json', ttlMs: 1000, fetchFn, fallbackIndex: sampleIndex
+    });
+    const catalog = await client.getCatalog();
+    expect(catalog.plugins).toHaveLength(1);
+    expect(catalog.skills).toHaveLength(0); // remote won, not the fallback
+  });
 });

@@ -9,6 +9,8 @@ import { InstallPanel } from './ui/webview/panel';
 import { Installer } from './install/installer';
 import { CatalogItem, SourceConfig, Catalog, mergeCatalogs } from './sources/types';
 import { IndexClient } from './index/indexClient';
+import { SkillMeUpIndex } from './shared/indexTypes';
+import defaultIndex from './index/defaultIndex.json';
 import { parseGitHubUrl } from './util/githubFetcher';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
@@ -31,7 +33,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   const registry = new SourceRegistry(cache);
   const indexUrl = vscode.workspace.getConfiguration('skillmeup').get<string>('indexUrl', '');
   const indexTtlMs = Math.max(1, vscode.workspace.getConfiguration('skillmeup').get<number>('cacheMinutes', 720)) * 60_000;
-  const indexClient = new IndexClient(context.globalState, { indexUrl, ttlMs: indexTtlMs });
+  const indexClient = new IndexClient(context.globalState, {
+    indexUrl,
+    ttlMs: indexTtlMs,
+    fallbackIndex: defaultIndex as unknown as SkillMeUpIndex
+  });
   const installer = new Installer();
 
   // When a stale-cache background refresh finishes, push the fresh data to the UI.
