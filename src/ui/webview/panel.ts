@@ -125,8 +125,9 @@ export class InstallPanel {
     </div>
   </header>
   <div class="searchbar">
-    <input id="search" type="text" placeholder="Filter by name or description…" />
+    <input id="search" type="text" placeholder="Search skills & plugins…" />
   </div>
+  <div id="filters" class="filters"></div>
   <main id="content">
     <p class="muted">Loading…</p>
   </main>
