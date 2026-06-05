@@ -170,7 +170,8 @@
     "vscode:prepublish": "node esbuild.js --production",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck:crawler": "tsc -p tsconfig.crawler.json --noEmit"
+    "typecheck:crawler": "tsc -p tsconfig.crawler.json --noEmit",
+    "crawl": "tsx crawler/index.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
