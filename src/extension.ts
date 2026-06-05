@@ -7,7 +7,8 @@ import { recommend } from './analysis/recommender';
 import { SkillsTreeProvider } from './ui/treeProvider';
 import { InstallPanel } from './ui/webview/panel';
 import { Installer } from './install/installer';
-import { CatalogItem, SourceConfig } from './sources/types';
+import { CatalogItem, SourceConfig, Catalog, mergeCatalogs } from './sources/types';
+import { IndexClient } from './index/indexClient';
 import { parseGitHubUrl } from './util/githubFetcher';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
@@ -28,6 +29,9 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
   const cache = new TTLCache(context.globalState);
   const registry = new SourceRegistry(cache);
+  const indexUrl = vscode.workspace.getConfiguration('skillmeup').get<string>('indexUrl', '');
+  const indexTtlMs = Math.max(1, vscode.workspace.getConfiguration('skillmeup').get<number>('cacheMinutes', 720)) * 60_000;
+  const indexClient = new IndexClient(context.globalState, { indexUrl, ttlMs: indexTtlMs });
   const installer = new Installer();
 
   // When a stale-cache background refresh finishes, push the fresh data to the UI.
@@ -39,14 +43,32 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     InstallPanel.updateIfOpen({ catalog: freshCatalog, recommendations: recs });
     log('background refresh applied to UI');
   };
+  indexClient.onRefreshed = async (freshIndexCatalog) => {
+    const merged = await loadCatalog(false);
+    const signals = await scanWorkspace();
+    const maxN = vscode.workspace.getConfiguration('skillmeup').get<number>('maxSuggestions', 10);
+    const recs = recommend(merged, signals, maxN);
+    tree.setState({ catalog: merged, recommendations: recs, loading: false });
+    InstallPanel.updateIfOpen({ catalog: merged, recommendations: recs });
+    log('index background refresh applied to UI');
+  };
   const tree = new SkillsTreeProvider();
   const treeView = vscode.window.createTreeView('skillmeup.skills', { treeDataProvider: tree, showCollapseAll: true });
   context.subscriptions.push(treeView);
 
+  async function loadCatalog(force: boolean): Promise<Catalog> {
+    const indexCatalog = await indexClient.getCatalog(force);
+    const customSources = vscode.workspace.getConfiguration('skillmeup').get<SourceConfig[]>('sources', []);
+    if (customSources.length === 0) return indexCatalog;
+    // Merge user-added live sources on top of the hosted index.
+    const custom = await registry.getCatalog(force);
+    return mergeCatalogs([indexCatalog, custom]);
+  }
+
   async function refreshCatalog(force = false): Promise<void> {
     tree.setState({ loading: true, error: undefined });
     try {
-      const catalog = await registry.getCatalog(force);
+      const catalog = await loadCatalog(force);
       const signals = await scanWorkspace();
       const maxN = vscode.workspace.getConfiguration('skillmeup').get<number>('maxSuggestions', 10);
       const recs = recommend(catalog, signals, maxN);
@@ -69,7 +91,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   context.subscriptions.push(
     vscode.commands.registerCommand('skillmeup.openInstallPanel', async () => {
       // Make sure we have something to show
-      const catalog = await registry.getCatalog(false);
+      const catalog = await loadCatalog(false);
       const signals = await scanWorkspace();
       const maxN = vscode.workspace.getConfiguration('skillmeup').get<number>('maxSuggestions', 10);
       const recs = recommend(catalog, signals, maxN);
@@ -169,6 +191,8 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
         refreshCatalog(true);
       } else if (e.affectsConfiguration('skillmeup.maxSuggestions')) {
         refreshCatalog(false);
+      } else if (e.affectsConfiguration('skillmeup.indexUrl')) {
+        refreshCatalog(true);
       }
     })
   );

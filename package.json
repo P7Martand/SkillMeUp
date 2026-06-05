@@ -108,17 +108,8 @@
       "properties": {
         "skillmeup.sources": {
           "type": "array",
-          "default": [
-            {
-              "url": "https://github.com/anthropics/skills",
-              "kind": "marketplace"
-            },
-            {
-              "url": "https://github.com/anthropics/claude-plugins-official",
-              "kind": "marketplace"
-            }
-          ],
-          "description": "List of skill/plugin sources. Each entry: { url, kind }. kind = marketplace | awesome-list | repo.",
+          "default": [],
+          "description": "Optional user-added custom skill/plugin sources fetched live from GitHub. The default catalog comes from the hosted index (skillmeup.indexUrl); leave this empty unless adding a repo not yet indexed.",
           "items": {
             "type": "object",
             "properties": {
@@ -135,6 +126,11 @@
               }
             }
           }
+        },
+        "skillmeup.indexUrl": {
+          "type": "string",
+          "default": "https://anthropics.github.io/SkillMeUp/index.json",
+          "description": "URL of the published SkillMeUp catalog index (index.json). Defaults to the hosted nightly index."
         },
         "skillmeup.installScope": {
           "type": "string",
